@@ -85,7 +85,16 @@ git pull origin main
 
 ### 2. 查询新闻
 ```bash
+# Dev.to AI新闻 (推荐)
 curl -s "https://dev.to/api/articles?tag=ai&per_page=10"
+
+# Dev.to 技术新闻
+curl -s "https://dev.to/api/articles?tag=technology&per_page=10"
+
+# Dev.to 特定主题
+curl -s "https://dev.to/api/articles?tag=openai&per_page=5"
+curl -s "https://dev.to/api/articles?tag=gemini&per_page=5"
+curl -s "https://dev.to/api/articles?tag=machinelearning&per_page=5"
 ```
 
 ### 3. 整理新闻
