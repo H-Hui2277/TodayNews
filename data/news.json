@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-04T12:44:00Z",
+  "lastUpdated": "2026-03-04T14:00:00Z",
   "categories": [
     {
       "id": "ai",
@@ -16,59 +16,114 @@
   ],
   "articles": [
     {
+      "id": "ai-2026-0304-006",
+      "title": "构建CommonTrace：神经科学启发的AI编码代理知识库",
+      "summary": "当AI编码代理在凌晨2点修复了一个棘手的部署问题后，这些知识在会话结束时就消失了。开发者构建了CommonTrace，一个受神经科学启发的知识库系统，让AI代理能够积累和共享知识。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/sheilles_/building-commontrace-a-neuroscience-inspired-knowledge-base-for-ai-coding-agents-c5e",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T13:19:00Z",
+      "tags": ["AI Agent", "知识库", "开源"]
+    },
+    {
+      "id": "ai-2026-0304-007",
+      "title": "比Perplexity更便宜、完全本地化的AI研究工具",
+      "summary": "如果用过Perplexity Deep Research，你可能会感受到它的强大但价格昂贵。开发者构建了Agent Browser Workspace，一个本地运行的AI研究工具，价格更低且支持任何AI代理。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/kolomeitsev/cheaper-than-perplexity-but-local-and-works-with-any-agent-agent-browser-workspace-17bo",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T12:49:00Z",
+      "tags": ["AI研究", "本地化", "Perplexity"]
+    },
+    {
+      "id": "ai-2026-0304-008",
+      "title": "我构建了一个让Claude能图片水印的MCP服务器",
+      "summary": "开发者构建了一个MCP服务器，让Claude能够为图片添加水印。这个工具可以帮助内容创作者轻松保护他们的图像作品。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/whitemarmot/i-built-an-mcp-server-that-lets-claude-watermark-images-heres-how-46mk",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T13:20:00Z",
+      "tags": ["MCP", "图片处理", "Claude"]
+    },
+    {
+      "id": "ai-2026-0304-009",
+      "title": "我构建了一个本地PR审核界面用于Claude Code计划",
+      "summary": "开发者构建了一个GitHub PR审核UI，专门用于Claude Code生成的代码审查计划，帮助开发者更好地理解和审核AI生成的代码更改。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/eduardmaghakyan/building-a-local-pr-review-interface-for-claude-code-plans-57o2",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T00:27:00Z",
+      "tags": ["Claude Code", "PR审核", "工具"]
+    },
+    {
+      "id": "ai-2026-0304-010",
+      "title": "TokenBar - 一个精致的macOS Token管理工具",
+      "summary": "开发者分享了一个名为TokenBar的macOS小工具，用于管理API Token。发布后获得了100+安装量，这个简单但实用的工具受到了开发者社区的欢迎。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/jack__altman__/i-launched-a-tiny-macos-tool-yesterday-and-woke-up-to-100-installs-280i",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T06:00:00Z",
+      "tags": ["macOS", "工具", "Token管理"]
+    },
+    {
       "id": "ai-2026-0304-001",
       "title": "Gemini 3.1 Flash-Lite 发布 - AI模型成本进一步降低",
-      "summary": "Google发布了Gemini 3.1 Flash-Lite，这是一款针对开发者优化的高速模型。Flash-Lite保持了高质量输出的同时，大幅降低了推理成本，使得更多开发者能够负担得起使用强大的AI能力。随着模型价格持续下降，开发者开始思考如何构建之前因成本过高而无法实现的应用。",
+      "summary": "Google发布了Gemini 3.1 Flash-Lite，这是一款针对开发者优化的高速模型。Flash-Lite保持了高质量输出的同时，大幅降低了推理成本，使得更多开发者能够负担得起使用强大的AI能力。",
       "category": "ai",
       "source": "Dev.to",
       "url": "https://dev.to/ben/oooh-very-interesting-ohk",
       "publishedAt": "2026-03-03",
       "createdAt": "2026-03-04T12:40:00Z",
-      "tags": ["Google", "Gemini", "大模型", "成本优化"]
+      "tags": ["Google", "Gemini", "大模型"]
     },
     {
       "id": "ai-2026-0304-002",
       "title": "我使用8个AI Agent部门运营单人公司",
-      "summary": "开发者构建了8个AI Agent部门来运营公司，包括CEO、CFO、COO、律师、会计、市场营销、CTO和改进者。这些AI Agent共享内存、相互咨询并能够自我改进。这种AI Agent公司的模式展示了未来工作方式的可能性。",
+      "summary": "开发者构建了8个AI Agent部门来运营公司，包括CEO、CFO、COO、律师、会计、市场营销、CTO和改进者。这些AI Agent共享内存、相互咨询并能够自我改进。",
       "category": "ai",
       "source": "Dev.to",
       "url": "https://dev.to/setas/i-run-a-solo-company-with-ai-agent-departments-50nf",
       "publishedAt": "2026-03-03",
       "createdAt": "2026-03-04T12:41:00Z",
-      "tags": ["AI Agent", "自动化", "创业", "Startup"]
+      "tags": ["AI Agent", "自动化", "创业"]
     },
     {
       "id": "ai-2026-0304-003",
       "title": "我创建了一个企业级MCP网关",
-      "summary": "当开始构建超越简单实验的AI应用时，一切都变得不同。模型需要企业级的可靠性、安全性和可扩展性。作者分享了如何构建企业级MCP（Model Context Protocol）网关，解决AI应用在企业环境中面临的核心挑战。",
+      "summary": "当开始构建超越简单实验的AI应用时，一切都变得不同。模型需要企业级的可靠性、安全性和可扩展性。作者分享了如何构建企业级MCP网关。",
       "category": "ai",
       "source": "Dev.to",
       "url": "https://dev.to/anthonymax/i-created-an-enterprise-mcp-gateway-bg",
       "publishedAt": "2026-03-03",
       "createdAt": "2026-03-04T12:42:00Z",
-      "tags": ["MCP", "企业级", "架构", "AI应用"]
+      "tags": ["MCP", "企业级", "架构"]
     },
     {
       "id": "ai-2026-0304-004",
       "title": "我构建了一个AI文献综述自动化工具",
-      "summary": "如果你曾经需要做系统性的文献综述——那种需要手动搜索、筛选大量论文的工作——你就会知道这有多耗时。这位开发者构建了一个AI工具来自动化整个文献综述流程，大大提高了研究效率。",
+      "summary": "如果你曾经需要做系统性的文献综述，这位开发者构建了一个AI工具来自动化整个文献综述流程，大大提高了研究效率。",
       "category": "ai",
       "source": "Dev.to",
       "url": "https://dev.to/devfuad/i-built-an-ai-that-automates-literature-reviews-heres-how-it-works-under-the-hood-5gpk",
       "publishedAt": "2026-03-03",
       "createdAt": "2026-03-04T12:43:00Z",
-      "tags": ["AI应用", "研究", "自动化", "工具"]
+      "tags": ["AI应用", "研究", "工具"]
     },
     {
       "id": "ai-2026-0304-005",
-      "title": "我构建了一个免费的AI工具目录，包含500+工具和提示词模板",
-      "summary": "ai123.help是一个全面的免费AI工具目录，帮助用户发现和比较各种AI工具。目录包含500多个AI工具，并提供工具比较和提示词模板功能。",
+      "title": "我构建了一个免费的AI工具目录(500+工具)",
+      "summary": "ai123.help是一个全面的免费AI工具目录，帮助用户发现和比较各种AI工具，包含500多个AI工具并提供工具比较和提示词模板功能。",
       "category": "ai",
       "source": "Dev.to",
       "url": "https://dev.to/aimin_wang_7060db4544e521/i-built-a-free-ai-tools-directory-with-500-tools-comparisons-prompt-templates-3hpa",
       "publishedAt": "2026-03-04",
       "createdAt": "2026-03-04T12:44:00Z",
-      "tags": ["AI工具", "目录", "资源", "提示词"]
+      "tags": ["AI工具", "目录", "资源"]
     }
   ],
   "files": ["news-2026-03.json"]

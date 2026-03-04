@@ -1,12 +1,67 @@
 // ==================== News Data ====================
 // 直接内嵌数据，避免CORS问题
 const NEWS_DATA = {
-  "lastUpdated": "2026-03-04T12:44:00Z",
+  "lastUpdated": "2026-03-04T14:00:00Z",
   "categories": [
     { "id": "ai", "name": "AI要闻", "description": "AI领域动态", "color": "#6366f1" },
     { "id": "tech", "name": "科技要闻", "description": "科技行业资讯", "color": "#10b981" }
   ],
   "articles": [
+    {
+      "id": "ai-2026-0304-006",
+      "title": "构建CommonTrace：神经科学启发的AI编码代理知识库",
+      "summary": "当AI编码代理在凌晨2点修复了一个棘手的部署问题后，这些知识在会话结束时就消失了。开发者构建了CommonTrace，一个受神经科学启发的知识库系统，让AI代理能够积累和共享知识。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/sheilles_/building-commontrace-a-neuroscience-inspired-knowledge-base-for-ai-coding-agents-c5e",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T13:19:00Z",
+      "tags": ["AI Agent", "知识库", "开源"]
+    },
+    {
+      "id": "ai-2026-0304-007",
+      "title": "比Perplexity更便宜、完全本地化的AI研究工具",
+      "summary": "如果用过Perplexity Deep Research，你可能会感受到它的强大但价格昂贵。开发者构建了Agent Browser Workspace，一个本地运行的AI研究工具，价格更低且支持任何AI代理。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/kolomeitsev/cheaper-than-perplexity-but-local-and-works-with-any-agent-agent-browser-workspace-17bo",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T12:49:00Z",
+      "tags": ["AI研究", "本地化", "Perplexity"]
+    },
+    {
+      "id": "ai-2026-0304-008",
+      "title": "我构建了一个让Claude能图片水印的MCP服务器",
+      "summary": "开发者构建了一个MCP服务器，让Claude能够为图片添加水印。这个工具可以帮助内容创作者轻松保护他们的图像作品。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/whitemarmot/i-built-an-mcp-server-that-lets-claude-watermark-images-heres-how-46mk",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T13:20:00Z",
+      "tags": ["MCP", "图片处理", "Claude"]
+    },
+    {
+      "id": "ai-2026-0304-009",
+      "title": "我构建了一个本地PR审核界面用于Claude Code计划",
+      "summary": "开发者构建了一个GitHub PR审核UI，专门用于Claude Code生成的代码审查计划，帮助开发者更好地理解和审核AI生成的代码更改。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/eduardmaghakyan/building-a-local-pr-review-interface-for-claude-code-plans-57o2",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T00:27:00Z",
+      "tags": ["Claude Code", "PR审核", "工具"]
+    },
+    {
+      "id": "ai-2026-0304-010",
+      "title": "TokenBar - 一个精致的macOS Token管理工具",
+      "summary": "开发者分享了一个名为TokenBar的macOS小工具，用于管理API Token。发布后获得了100+安装量，这个简单但实用的工具受到了开发者社区的欢迎。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/jack__altman__/i-launched-a-tiny-macos-tool-yesterday-and-woke-up-to-100-installs-280i",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T06:00:00Z",
+      "tags": ["macOS", "工具", "Token管理"]
+    },
     {
       "id": "ai-2026-0304-001",
       "title": "Gemini 3.1 Flash-Lite 发布 - AI模型成本进一步降低",
