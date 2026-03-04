@@ -12,9 +12,6 @@
       <h1 class="logo">今日要闻</h1>
       <p class="subtitle">AI & 科技资讯精选</p>
     </div>
-    <div class="header-meta">
-      <span class="last-updated">最后更新：<span id="lastUpdated">加载中...</span></span>
-    </div>
   </header>
 
   <div class="container">
@@ -40,13 +37,38 @@
     </aside>
 
     <main class="main-content">
-      <div class="news-grid" id="newsGrid">
-        <!-- News cards will be rendered here -->
+      <!-- Time Header -->
+      <div class="time-header">
+        <div class="time-info">
+          <span class="time-label">更新时间</span>
+          <span class="time-value" id="lastUpdated">加载中...</span>
+        </div>
+        <div class="page-info">
+          <span id="pageInfo">1 / 1</span>
+        </div>
       </div>
+
+      <!-- News List -->
+      <div class="news-list" id="newsList">
+        <!-- News items will be rendered here -->
+      </div>
+
+      <!-- Empty State -->
       <div class="empty-state" id="emptyState" style="display: none;">
         <div class="empty-icon">📭</div>
         <p>暂无新闻记录</p>
         <p class="empty-hint">请让Claude帮你更新新闻</p>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" id="pagination">
+        <button class="page-btn" id="prevPage" disabled>
+          <span class="page-icon">‹</span> 上一页
+        </button>
+        <div class="page-numbers" id="pageNumbers"></div>
+        <button class="page-btn" id="nextPage" disabled>
+          下一页 <span class="page-icon">›</span>
+        </button>
       </div>
     </main>
   </div>

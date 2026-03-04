@@ -3,8 +3,8 @@
 const NEWS_DATA = {
   "lastUpdated": "2026-03-04T14:00:00Z",
   "categories": [
-    { "id": "ai", "name": "AI要闻", "description": "AI领域动态", "color": "#6366f1" },
-    { "id": "tech", "name": "科技要闻", "description": "科技行业资讯", "color": "#10b981" }
+    { "id": "ai", "name": "AI要闻", "description": "AI领域动态", "color": "#0ea5e9" },
+    { "id": "tech", "name": "科技要闻", "description": "科技行业资讯", "color": "#06b6d4" }
   ],
   "articles": [
     {
@@ -87,7 +87,7 @@ const NEWS_DATA = {
     {
       "id": "ai-2026-0304-003",
       "title": "我创建了一个企业级MCP网关",
-      "summary": "当开始构建超越简单实验的AI应用时，一切都变得不同。模型需要企业级的可靠性、安全性和可扩展性。作者分享了如何构建企业级MCP网关。",
+      "summary": "当开始构建超越简单实验的AI应用时，一切都变得不同。模型需要企业级的可靠性，安全性和可扩展性。作者分享了如何构建企业级MCP网关。",
       "category": "ai",
       "source": "Dev.to",
       "url": "https://dev.to/anthonymax/i-created-an-enterprise-mcp-gateway-bg",
@@ -122,24 +122,30 @@ const NEWS_DATA = {
 
 // ==================== App Configuration ====================
 const CONFIG = {
-  // 数据直接使用内嵌，避免CORS问题
   useEmbedded: true,
-  defaultCategory: 'all'
+  defaultCategory: 'all',
+  itemsPerPage: 5  // 每页显示5条
 };
 
 // ==================== State ====================
 let currentCategory = CONFIG.defaultCategory;
+let currentPage = 1;
 let newsData = null;
 
 // ==================== DOM Elements ====================
 const elements = {
-  newsGrid: document.getElementById('newsGrid'),
+  newsList: document.getElementById('newsList'),
   emptyState: document.getElementById('emptyState'),
   lastUpdated: document.getElementById('lastUpdated'),
   countAll: document.getElementById('count-all'),
   countAi: document.getElementById('count-ai'),
   countTech: document.getElementById('count-tech'),
-  categoryBtns: document.querySelectorAll('.category-btn')
+  categoryBtns: document.querySelectorAll('.category-btn'),
+  pagination: document.getElementById('pagination'),
+  prevPage: document.getElementById('prevPage'),
+  nextPage: document.getElementById('nextPage'),
+  pageNumbers: document.getElementById('pageNumbers'),
+  pageInfo: document.getElementById('pageInfo')
 };
 
 // ==================== Initialize ====================
@@ -160,35 +166,19 @@ function loadData() {
   if (CONFIG.useEmbedded) {
     newsData = NEWS_DATA;
   } else {
-    // 异步加载方式保留（如果需要从服务器加载）
     throw new Error('Use embedded data');
   }
 }
 
 // ==================== Rendering ====================
 function renderCounts() {
-  const articles = newsData?.articles || [];
+  const articles = getFilteredArticles();
   const aiCount = articles.filter(a => a.category === 'ai').length;
   const techCount = articles.filter(a => a.category === 'tech').length;
 
   elements.countAll.textContent = articles.length;
   elements.countAi.textContent = aiCount;
   elements.countTech.textContent = techCount;
-}
-
-function renderNews() {
-  const articles = getFilteredArticles();
-
-  if (articles.length === 0) {
-    showEmptyState();
-    return;
-  }
-
-  hideEmptyState();
-  elements.newsGrid.innerHTML = articles
-    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
-    .map(article => createNewsCard(article))
-    .join('');
 }
 
 function getFilteredArticles() {
@@ -198,30 +188,74 @@ function getFilteredArticles() {
   return (newsData?.articles || []).filter(a => a.category === currentCategory);
 }
 
-function createNewsCard(article) {
+function getTotalPages() {
+  const articles = getFilteredArticles();
+  return Math.ceil(articles.length / CONFIG.itemsPerPage);
+}
+
+function getCurrentPageArticles() {
+  const articles = getFilteredArticles()
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+
+  const start = (currentPage - 1) * CONFIG.itemsPerPage;
+  const end = start + CONFIG.itemsPerPage;
+  return articles.slice(start, end);
+}
+
+function renderNews() {
+  const articles = getCurrentPageArticles();
+  const totalPages = getTotalPages();
+
+  if (getFilteredArticles().length === 0) {
+    showEmptyState();
+    hidePagination();
+    return;
+  }
+
+  hideEmptyState();
+
+  if (totalPages <= 1) {
+    hidePagination();
+  } else {
+    showPagination();
+    renderPagination(totalPages);
+  }
+
+  elements.newsList.innerHTML = articles.map(article => createNewsItem(article)).join('');
+  updatePageInfo();
+}
+
+function createNewsItem(article) {
   const categoryInfo = getCategoryInfo(article.category);
   const date = formatDate(article.publishedAt);
+  const time = formatTime(article.publishedAt);
   const tags = article.tags || [];
 
   return `
-    <article class="news-card">
-      <div class="news-card-header">
-        <span class="news-category ${article.category}">
-          ${categoryInfo.icon} ${categoryInfo.name}
-        </span>
-        <time class="news-date" datetime="${article.publishedAt}">${date}</time>
+    <article class="news-item">
+      <div class="news-date-badge">
+        <span class="news-date-day">${date.day}</span>
+        <span class="news-date-month">${date.month}</span>
       </div>
-      <h2 class="news-title">
-        <a href="${article.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(article.title)}</a>
-      </h2>
-      <p class="news-summary">${escapeHtml(article.summary)}</p>
-      <div class="news-meta">
-        <span class="news-source">${escapeHtml(article.source)}</span>
-        ${tags.length > 0 ? `
-          <div class="news-tags">
-            ${tags.slice(0, 3).map(tag => `<span class="news-tag">${escapeHtml(tag)}</span>`).join('')}
-          </div>
-        ` : ''}
+      <div class="news-content">
+        <div class="news-header">
+          <span class="news-category ${article.category}">
+            ${categoryInfo.icon} ${categoryInfo.name}
+          </span>
+          <span class="news-time">${time}</span>
+        </div>
+        <h2 class="news-title">
+          <a href="${article.url}" target="_blank" rel="noopener noreferrer">${escapeHtml(article.title)}</a>
+        </h2>
+        <p class="news-summary">${escapeHtml(article.summary)}</p>
+        <div class="news-meta">
+          <span class="news-source">${escapeHtml(article.source)}</span>
+          ${tags.length > 0 ? `
+            <div class="news-tags">
+              ${tags.slice(0, 3).map(tag => `<span class="news-tag">${escapeHtml(tag)}</span>`).join('')}
+            </div>
+          ` : ''}
+        </div>
       </div>
     </article>
   `;
@@ -239,18 +273,16 @@ function getCategoryInfo(categoryId) {
 
 function formatDate(dateString) {
   const date = new Date(dateString);
-  const now = new Date();
-  const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+  const months = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'];
+  return {
+    day: date.getDate(),
+    month: months[date.getMonth()]
+  };
+}
 
-  if (diffDays === 0) return '今天';
-  if (diffDays === 1) return '昨天';
-  if (diffDays < 7) return `${diffDays}天前`;
-
-  return date.toLocaleDateString('zh-CN', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric'
-  });
+function formatTime(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
 }
 
 function escapeHtml(text) {
@@ -259,14 +291,56 @@ function escapeHtml(text) {
   return div.innerHTML;
 }
 
+// ==================== Pagination ====================
+function renderPagination(totalPages) {
+  elements.pageNumbers.innerHTML = '';
+
+  // 最多显示7个页码
+  let startPage = Math.max(1, currentPage - 3);
+  let endPage = Math.min(totalPages, startPage + 6);
+  startPage = Math.max(1, endPage - 6);
+
+  for (let i = startPage; i <= endPage; i++) {
+    const pageBtn = document.createElement('button');
+    pageBtn.className = `page-number ${i === currentPage ? 'active' : ''}`;
+    pageBtn.textContent = i;
+    pageBtn.addEventListener('click', () => goToPage(i));
+    elements.pageNumbers.appendChild(pageBtn);
+  }
+
+  // 更新 prev/next 按钮状态
+  elements.prevPage.disabled = currentPage <= 1;
+  elements.nextPage.disabled = currentPage >= totalPages;
+}
+
+function goToPage(page) {
+  currentPage = page;
+  renderNews();
+  // 滚动到列表顶部
+  elements.newsList.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function updatePageInfo() {
+  const totalPages = getTotalPages();
+  elements.pageInfo.textContent = `${currentPage} / ${totalPages}`;
+}
+
+function showPagination() {
+  elements.pagination.style.display = 'flex';
+}
+
+function hidePagination() {
+  elements.pagination.style.display = 'none';
+}
+
 // ==================== UI State ====================
 function showEmptyState() {
-  elements.newsGrid.style.display = 'none';
+  elements.newsList.style.display = 'none';
   elements.emptyState.style.display = 'block';
 }
 
 function hideEmptyState() {
-  elements.newsGrid.style.display = 'grid';
+  elements.newsList.style.display = 'flex';
   elements.emptyState.style.display = 'none';
 }
 
@@ -285,12 +359,27 @@ function updateLastUpdated() {
 
 // ==================== Event Handlers ====================
 function setupEventListeners() {
+  // 分类按钮
   elements.categoryBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const category = btn.dataset.category;
       setActiveCategory(category);
+      currentPage = 1;  // 切换分类时重置到第一页
       renderNews();
     });
+  });
+
+  // 翻页按钮
+  elements.prevPage.addEventListener('click', () => {
+    if (currentPage > 1) {
+      goToPage(currentPage - 1);
+    }
+  });
+
+  elements.nextPage.addEventListener('click', () => {
+    if (currentPage < getTotalPages()) {
+      goToPage(currentPage + 1);
+    }
   });
 
   updateLastUpdated();
