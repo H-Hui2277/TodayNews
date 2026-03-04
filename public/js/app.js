@@ -1,12 +1,78 @@
 // ==================== News Data ====================
 // 直接内嵌数据，避免CORS问题
 const NEWS_DATA = {
-  "lastUpdated": "2026-03-04T14:00:00Z",
+  "lastUpdated": "2026-03-04T15:00:00Z",
   "categories": [
     { "id": "ai", "name": "AI要闻", "description": "AI领域动态", "color": "#0ea5e9" },
     { "id": "tech", "name": "科技要闻", "description": "科技行业资讯", "color": "#06b6d4" }
   ],
   "articles": [
+    {
+      "id": "ai-2026-0304-011",
+      "title": "语义缓存降低72% LLM API成本 - 实战经验分享",
+      "summary": "开发者构建了一个语义缓存系统，在100次真实的Anthropic API调用测试中，成功将API成本降低了72%。文章详细介绍了哪些方法有效，哪些方法失败了。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/vinay_budideti/i-built-a-semantic-cache-that-cuts-llm-api-costs-by-72-what-actually-worked-and-what-didnt-19ia",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T14:00:00Z",
+      "tags": ["LLM", "成本优化", "缓存"]
+    },
+    {
+      "id": "ai-2026-0304-012",
+      "title": "TDT技术解析：超越RNN-T的最快语音识别模型",
+      "summary": "Token-and-Duration Transducer (TDT) 是当前开放ASR排行榜上最快的模型背后的技术。本文详细解析了TDT如何通过联合预测token和持续时间来提升语音识别速度。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/ollieparish/understanding-tdt-the-mechanism-behind-the-fastest-models-on-the-open-asr-leaderboard-4o82",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T13:30:00Z",
+      "tags": ["语音识别", "ASR", "TDT"]
+    },
+    {
+      "id": "ai-2026-0304-013",
+      "title": "当前主流LLM背后的架构解析",
+      "summary": "大型语言模型在过去几年迅速成为各领域焦点。本文介绍了当前主流LLM背后的核心技术架构，包括Transformer、BERT等模型的设计原理。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/sdiazlor/an-introduction-to-the-architectures-powering-the-current-llms-41n3",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T11:22:00Z",
+      "tags": ["LLM", "架构", "入门"]
+    },
+    {
+      "id": "ai-2026-0304-014",
+      "title": "Woxi：用Rust重写Wolfram Mathematica",
+      "summary": "Woxi是一个用Rust重写Wolfram Mathematica的开源项目。这标志着计算数学软件领域的一个重要尝试，Rust的性能和安全性为其提供了优势。",
+      "category": "tech",
+      "source": "Dev.to",
+      "url": "https://dev.to/guy_d/woxi-wolfram-mathematica-reimplementation-in-rust-4doi",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T10:37:00Z",
+      "tags": ["Rust", "Mathematica", "开源"]
+    },
+    {
+      "id": "ai-2026-0304-015",
+      "title": "医疗AI的陷阱：相关性如何误导",
+      "summary": "现代医疗AI模型能在大规模数据中识别统计关系，但医学是基于因果关系运作的。本文探讨了相关性在医疗AI中的局限性。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/onyedikachi_onwurah_00ba3/when-correlation-misleads-healthcare-ai-49h7",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T09:28:00Z",
+      "tags": ["医疗AI", "数据科学", "因果推断"]
+    },
+    {
+      "id": "ai-2026-0304-016",
+      "title": "GenAI系统评估指南：超越准确率",
+      "summary": "在传统机器学习中，准确率是衡量模型性能的主要指标。但在生成式AI系统中，仅靠准确率是不够的。本文提供了生产环境中评估GenAI系统的实用指南。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/shreekansha97/evaluating-genai-systems-beyond-accuracy-a-production-guide-40ao",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-04T08:29:00Z",
+      "tags": ["GenAI", "评估", "LLM"]
+    },
     {
       "id": "ai-2026-0304-006",
       "title": "构建CommonTrace：神经科学启发的AI编码代理知识库",
