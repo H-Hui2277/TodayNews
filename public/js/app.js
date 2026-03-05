@@ -1,12 +1,78 @@
 // ==================== News Data ====================
 // 直接内嵌数据，避免CORS问题
 const NEWS_DATA = {
-  "lastUpdated": "2026-03-04T15:00:00Z",
+  "lastUpdated": "2026-03-05T12:00:00Z",
   "categories": [
     { "id": "ai", "name": "AI要闻", "description": "AI领域动态", "color": "#0ea5e9" },
     { "id": "tech", "name": "科技要闻", "description": "科技行业资讯", "color": "#06b6d4" }
   ],
   "articles": [
+    {
+      "id": "ai-2026-0305-001",
+      "title": "DEV社区推出Agent Sessions：可分享和嵌入的AI对话",
+      "summary": "DEV社区发布全新Beta功能，允许作者上传AI Agent会话记录到个人账户，并可嵌入或分享到其他平台。这为AI开发者和学习者提供了展示和交流AI编程经验的全新方式。",
+      "category": "ai",
+      "source": "DEV",
+      "url": "https://dev.to/devteam/share-embed-and-curate-agent-sessions-on-dev-beta-5bj6",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-05T10:30:00Z",
+      "tags": ["AI Agent", "DEV", "Gemini"]
+    },
+    {
+      "id": "ai-2026-0305-002",
+      "title": "AI交易机器人自写规则：实战经验与教训",
+      "summary": "开发者分享了一个能自己重写交易规则的AI系统。该机器人在冰球投注中曾有83%的胜率，但在一次100美元的损失后，系统暴露了规则自写的风险。文章详细分析了问题和解决方案。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/up2itnow0822/our-trading-bot-rewrites-its-own-rules-heres-how-and-what-went-wrong-5dg9",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-05T09:45:00Z",
+      "tags": ["AI", "Python", "交易", "机器学习"]
+    },
+    {
+      "id": "ai-2026-0305-003",
+      "title": "企业级MCP网关：生产级AI应用架构实践",
+      "summary": "当开始构建超越简单实验的AI应用时，一切都变了。作者分享了构建企业级MCP网关的经验，解决了模型需要稳定连接、多工具编排等企业级需求。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/anthonymax/i-created-an-enterprise-mcp-gateway-bg",
+      "publishedAt": "2026-03-03",
+      "createdAt": "2026-03-05T08:20:00Z",
+      "tags": ["开源", "AI", "MCP", "企业级"]
+    },
+    {
+      "id": "ai-2026-0305-004",
+      "title": "GitHub Copilot SDK发布：AI编程助手新时代",
+      "summary": "GitHub发布了Copilot SDK，为开发者提供了更强大的AI编程辅助能力。本文介绍了SDK的功能和使用方法，帮助开发者更好地集成AI编程能力到自己的应用中。",
+      "category": "ai",
+      "source": "Microsoft Azure",
+      "url": "https://dev.to/azure/get-started-with-github-copilot-sdk-1ijm",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-05T07:15:00Z",
+      "tags": ["GitHub", "Copilot", "SDK", "Python"]
+    },
+    {
+      "id": "ai-2026-0305-005",
+      "title": "用SQLite作为MCP上下文管理器：避免LLM上下文膨胀",
+      "summary": "大多数MCP服务器将原始API响应直接注入对话上下文。作者提出使用SQLite作为MCP上下文管理器，通过结构化存储和智能检索，大幅减少输送给LLM的上下文量，提升效率和降低成本。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/richardbaxter/sqlite-as-an-mcp-context-saver-stop-cramming-raw-api-data-into-your-llm-2oj4",
+      "publishedAt": "2026-03-04",
+      "createdAt": "2026-03-05T06:30:00Z",
+      "tags": ["AI", "MCP", "SQLite", "LLM"]
+    },
+    {
+      "id": "ai-2026-0305-006",
+      "title": "构建真实记忆的AI助手：三个月失败后的反思",
+      "summary": "作者分享了用LangGraph构建带真实记忆的Alexa的经历。三个月失败后，他学到了不要与LLM对抗，而要设计让系统适应LLM特性的架构。文章探讨了记忆架构的设计思路。",
+      "category": "ai",
+      "source": "Dev.to",
+      "url": "https://dev.to/vivek_gaindhar_e79f747c46/i-tried-to-build-an-alexa-with-real-memory-heres-what-i-learned-after-3-months-of-failure-4f7",
+      "publishedAt": "2026-03-05",
+      "createdAt": "2026-03-05T05:00:00Z",
+      "tags": ["AI", "Web开发", "LangChain", "Python"]
+    },
     {
       "id": "ai-2026-0304-011",
       "title": "语义缓存降低72% LLM API成本 - 实战经验分享",
